@@ -51,5 +51,12 @@ builder.Services.AddMassTransit(x =>
 var app = builder.Build();
 
 
-app.Run();
+if (app.Environment.IsDevelopment())
+{
+    app.Run();
+}
+else
+{
+    app.Run("http://0.0.0.0:5001");
+}
 
